@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>déranger pt. 2 (instrumental) - edess</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    #player-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+    }
+
+    #song-info {
+      margin-bottom: 10px;
+    }
+
+    #album-art {
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border-radius: 10px; /* Adding border-radius for a square shape */
+    }
+
+    #album-art img {
+      width: 100%; /* Ensure the image fills the square container */
+      height: 100%;
+      object-fit: cover; /* Maintain the aspect ratio and cover the container */
+    }
+
+    audio {
+      width: 80%;
+      margin: 20px auto;
+      display: block;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    audio::-webkit-media-controls-panel {
+      background-color: #2d2d2d;
+      border-radius: 8px;
+    }
+
+    audio::-webkit-media-controls-play-button {
+      color: #4caf50;
+    }
+
+    audio::-webkit-media-controls-volume-slider-container {
+      color: #4caf50;
+    }
+
+    audio::-webkit-media-controls-timeline {
+      color: #4caf50;
+    }
+
+    audio::-webkit-media-controls-current-time-display,
+    audio::-webkit-media-controls-time-remaining-display {
+      color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+
+<div id="player-container">
+  <div id="album-art">
+    <!-- Replace 'your-image-path.jpg' with the actual path to your album art -->
+    <img src="IMG_9261.jpeg" alt="Album Art">
+  </div>
+
+  <div id="song-info">
+    <!-- Replace 'Song Title' with the actual title of your song -->
+    <h2>déranger pt. 2 (instrumental)</h2>
+  </div>
+
+  <audio id="audioPlayer" controls>
+    <source src="https://watch.valqimir.com/music/deranger2-instru.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+</body>
+</html>
