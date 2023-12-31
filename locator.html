@@ -3,21 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location Redirect</title>
+    <title>Region Redirect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Black background color for the redirect page */
+            height: 100vh; /* Viewport height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
     <script>
         function redirectBasedOnLocation() {
-            // Get user's location using a third-party service or API
-            // For simplicity, let's assume a function getCountryCode() returns the user's country code
-            // You may need to replace this with a more robust solution
+            // Get user's country code using a more accurate method
             const userCountryCode = getCountryCode();
 
             // List of European country codes (you may need to update this list)
             const europeanCountryCodes = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE'];
 
             // Check if the user is in Europe
-            if (!europeanCountryCodes.includes(userCountryCode)) {
-                // Redirect to another page for users outside of Europe
-                window.location.replace('https://13v.be/region-disabled');
+            if (europeanCountryCodes.includes(userCountryCode)) {
+                // Redirect to the European page
+                window.location.replace('https://13v.be');
+            } else {
+                // Redirect to the global page for users outside of Europe
+                window.location.replace('https://www.13v.be/region-disabled');
             }
         }
 
@@ -26,13 +38,12 @@
             // For simplicity, let's assume a default country code (you may need a more accurate method)
             return 'US';
         }
-        
+
         // Call the redirect function when the page loads
         window.onload = redirectBasedOnLocation;
     </script>
 </head>
 <body>
-    <h1>13v</h1>
-    <p>wait a second...</p>
+    <!-- Empty body for the redirection page -->
 </body>
 </html>
