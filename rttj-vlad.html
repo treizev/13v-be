@@ -10,11 +10,18 @@
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
+            margin: 0;
+        }
+        #album-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
         }
         #album-cover {
             width: 200px;
             height: 200px;
-            margin: 20px auto;
+            margin-bottom: 20px;
         }
         #song-list {
             list-style: none;
@@ -26,23 +33,25 @@
     </style>
 </head>
 <body>
-    <img id="album-cover" src="IMG_9135.jpeg" alt="Album Cover">
-    <h1>Running Through the Jungle (Vlad Cover)</h1>
-    <ul id="song-list">
-        <li class="song">
-            <audio controls>
-                <source src="https://watch.valqimir.com/music/vlad/rttj/VLAD.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-            <p>Title: Running Through the Jungle (Vlad Cover)</p>
-        </li>
-        <li class="song">
-            <audio controls>
-                <source src="https://watch.valqimir.com/music/vlad/rttj/VLAD-acapella.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-            <p>Title: Running Through the Jungle (Vlad Acapella)</p>
-        </li>
-    </ul>
+    <div id="album-container">
+        <img id="album-cover" src="https://cdn.13v.be/IMG_9135.jpeg" alt="Album Cover">
+        <h1>Running Through the Jungle (Vlad Cover)</h1>
+        <ul id="song-list">
+            <li class="song">
+                <audio controls>
+                    <source src="https://watch.valqimir.com/music/vlad/rttj/VLAD.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <p>Title: Running Through the Jungle (Vlad Cover)</p>
+            </li>
+            <li class="song">
+                <audio controls>
+                    <source src="https://watch.valqimir.com/music/vlad/rttj/VLAD-acapella.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <p>Title: Running Through the Jungle (Vlad Acapella)</p>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
