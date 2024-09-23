@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brik Stage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #FF6F61;
+            --text-color: #ffffff;
+            --card-bg-color: #fefefe;
+            --card-text-color: #FF6F61;
+            --card-hover-color: #fce4e1;
+        }
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #FF6F61;
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
-        }
-        h1 {
-            font-size: 3em;
-            margin: 50px 0;
+            transition: background-color 0.3s ease;
         }
         .container {
             max-width: 800px;
@@ -22,24 +27,32 @@
             padding: 20px;
             text-align: center;
         }
+        h1 {
+            font-size: clamp(2em, 5vw, 3em);
+            margin: 30px 0;
+            animation: fadeIn 1s ease-out;
+        }
         ul {
             list-style-type: none;
             padding: 0;
+            display: grid;
+            gap: 20px;
+            animation: fadeIn 1s ease-out 0.5s both;
         }
         li {
-            background-color: #fefefe;
-            color: #FF6F61;
-            margin: 20px 0;
+            background-color: var(--card-bg-color);
+            color: var(--card-text-color);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
         li:hover {
             transform: translateY(-5px);
+            background-color: var(--card-hover-color);
         }
         a {
-            color: #FF6F61;
+            color: inherit;
             font-weight: bold;
             text-decoration: none;
             transition: color 0.3s ease;
@@ -51,27 +64,94 @@
             display: inline-block;
             margin: 30px 0;
             padding: 10px 20px;
-            background-color: white;
-            color: #FF6F61;
+            background-color: var(--text-color);
+            color: var(--primary-color);
             border-radius: 20px;
             text-decoration: none;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            animation: fadeIn 1s ease-out 1s both;
         }
         .back-link:hover {
-            background-color: #fce4e1;
+            transform: scale(1.05);
+            background-color: var(--card-hover-color);
+        }
+        #theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 600px) {
+            ul {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (min-width: 601px) {
+            ul {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
         }
     </style>
 </head>
 <body>
+    <button id="theme-toggle">🌓</button>
     <div class="container">
         <h1>Brik Stage</h1>
         <ul>
-            <li>Zouzibabe (16:30 - 18:00) - <a href="https://youtu.be/VALWvH_ySIU?si=ySN1pU_ySCCopKdt">Écoutez ici</a> - DJ bruxellois aux vibes chaleureuses et funky.</li>
-            <li>Pelouse Grassband (18:10 - 18:40 et 20:10 - 20:40) - <a href="https://youtu.be/B4P0Ih4CI1o?si=_343fbJMm5FtOtw7">Écoutez ici</a> - Fanfare entraînante aux sonorités brésiliennes.</li>
-            <li>DTM Funk (18:40 - 20:10) - <a href="https://youtu.be/T1FmXXQosws?si=-0vpmb2c_OknbCvb&t=1721">Écoutez ici</a> - DJ polyvalent avec une sélection musicale exceptionnelle.</li>
-            <li>Omdat Het Kan (20:40 - 22:00) - <a href="https://youtu.be/hr4Bx-36vng?si=LhYIsi2PjKiqcGZD">Écoutez ici</a> - La légende de TikTok mélangée à de multiples genres musicaux.</li>
+            <li>
+                <h3>Zouzibabe</h3>
+                <p>16:30 - 18:00</p>
+                <p>DJ bruxellois aux vibes chaleureuses et funky.</p>
+                <a href="https://youtu.be/VALWvH_ySIU?si=ySN1pU_ySCCopKdt" target="_blank">Écoutez ici</a>
+            </li>
+            <li>
+                <h3>Pelouse Grassband</h3>
+                <p>18:10 - 18:40 et 20:10 - 20:40</p>
+                <p>Fanfare entraînante aux sonorités brésiliennes.</p>
+                <a href="https://youtu.be/B4P0Ih4CI1o?si=_343fbJMm5FtOtw7" target="_blank">Écoutez ici</a>
+            </li>
+            <li>
+                <h3>DTM Funk</h3>
+                <p>18:40 - 20:10</p>
+                <p>DJ polyvalent avec une sélection musicale exceptionnelle.</p>
+                <a href="https://youtu.be/T1FmXXQosws?si=-0vpmb2c_OknbCvb&t=1721" target="_blank">Écoutez ici</a>
+            </li>
+            <li>
+                <h3>Omdat Het Kan</h3>
+                <p>20:40 - 22:00</p>
+                <p>La légende de TikTok mélangée à de multiples genres musicaux.</p>
+                <a href="https://youtu.be/hr4Bx-36vng?si=LhYIsi2PjKiqcGZD" target="_blank">Écoutez ici</a>
+            </li>
         </ul>
         <a class="back-link" href="index.html">Retour à l'accueil</a>
     </div>
+
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                document.documentElement.style.setProperty('--primary-color', '#2C3E50');
+                document.documentElement.style.setProperty('--text-color', '#ECF0F1');
+                document.documentElement.style.setProperty('--card-bg-color', '#34495E');
+                document.documentElement.style.setProperty('--card-text-color', '#ECF0F1');
+                document.documentElement.style.setProperty('--card-hover-color', '#2C3E50');
+            } else {
+                document.documentElement.style.setProperty('--primary-color', '#FF6F61');
+                document.documentElement.style.setProperty('--text-color', '#ffffff');
+                document.documentElement.style.setProperty('--card-bg-color', '#fefefe');
+                document.documentElement.style.setProperty('--card-text-color', '#FF6F61');
+                document.documentElement.style.setProperty('--card-hover-color', '#fce4e1');
+            }
+        });
+    </script>
 </body>
 </html>
