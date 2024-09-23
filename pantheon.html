@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="https://cdn.13v.be/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>treizev</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://cdn.13v.be/pantheon.JPEG') center/cover fixed;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>treizev</h2>
+        <form action="https://l.13v.be/instagram" method="post" onsubmit="return validateForm()">
+            <label for="password">code :</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <input type="submit" value="Valider">
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+
+            // Mot de passe attendu pour la redirection
+            var motDePasseAttendu = "vladimir";
+
+            if (password === motDePasseAttendu) {
+                return true; // Soumission du formulaire autorisée, redirection vers "https://l.13v.be/instagram"
+            } else {
+                alert("Mot de passe incorrect. Veuillez réessayer.");
+                return false; // Soumission du formulaire interdite
+            }
+        }
+    </script>
+
+</body>
+</html>
