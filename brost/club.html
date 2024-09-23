@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club Stage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #FF6F61;
+            --text-color: #ffffff;
+            --card-bg-color: #fefefe;
+            --card-text-color: #FF6F61;
+            --card-hover-color: #fce4e1;
+        }
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #FF6F61;
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
-        }
-        h1 {
-            font-size: 3em;
-            margin: 50px 0;
+            transition: background-color 0.3s ease;
         }
         .container {
             max-width: 800px;
@@ -22,24 +27,32 @@
             padding: 20px;
             text-align: center;
         }
+        h1 {
+            font-size: clamp(2em, 5vw, 3em);
+            margin: 30px 0;
+            animation: fadeIn 1s ease-out;
+        }
         ul {
             list-style-type: none;
             padding: 0;
+            display: grid;
+            gap: 20px;
+            animation: fadeIn 1s ease-out 0.5s both;
         }
         li {
-            background-color: #fefefe;
-            color: #FF6F61;
-            margin: 20px 0;
+            background-color: var(--card-bg-color);
+            color: var(--card-text-color);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
         li:hover {
             transform: translateY(-5px);
+            background-color: var(--card-hover-color);
         }
         a {
-            color: #FF6F61;
+            color: inherit;
             font-weight: bold;
             text-decoration: none;
             transition: color 0.3s ease;
@@ -51,27 +64,94 @@
             display: inline-block;
             margin: 30px 0;
             padding: 10px 20px;
-            background-color: white;
-            color: #FF6F61;
+            background-color: var(--text-color);
+            color: var(--primary-color);
             border-radius: 20px;
             text-decoration: none;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            animation: fadeIn 1s ease-out 1s both;
         }
         .back-link:hover {
-            background-color: #fce4e1;
+            transform: scale(1.05);
+            background-color: var(--card-hover-color);
+        }
+        #theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 600px) {
+            ul {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (min-width: 601px) {
+            ul {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
         }
     </style>
 </head>
 <body>
+    <button id="theme-toggle">🌓</button>
     <div class="container">
         <h1>Club Stage</h1>
         <ul>
-            <li>DJ Shoplifter x Kairos (15:00 - 17:00) - <a href="https://youtu.be/g-8gQK1Q6Oc?si=_6bi2KFfH0Ay4X55&t=261">Écoutez ici</a> - Un mélange de joyaux de la basse britannique et de musique de club.</li>
-            <li>Come Correct (17:00 - 18:30) - <a href="https://www.mixcloud.com/BRUZZ/concealed-by-come-correct-090224/">Écoutez ici</a> - Spécialistes du break-beat avec des influences Drum & Bass et UK Garage.</li>
-            <li>Frontal Soundsystem (18:30 - 20:00) - <a href="https://youtu.be/EQclcW50xcM?si=Xu5MeUs8p_bRFCY4&t=686">Écoutez ici</a> - Des basses lourdes et un mélange de hip-hop, trap, et grime.</li>
-            <li>Emilija (20:00 - 22:00) - <a href="https://youtu.be/RUCUly7X2io?si=Qyp_Y4s8llDplSh9">Écoutez ici</a> - Étoile montante de la musique électronique.</li>
+            <li>
+                <h3>DJ Shoplifter x Kairos</h3>
+                <p>15:00 - 17:00</p>
+                <p>Un mélange de joyaux de la basse britannique et de musique de club.</p>
+                <a href="https://youtu.be/g-8gQK1Q6Oc?si=_6bi2KFfH0Ay4X55&t=261" target="_blank">Écoutez ici</a>
+            </li>
+            <li>
+                <h3>Come Correct</h3>
+                <p>17:00 - 18:30</p>
+                <p>Spécialistes du break-beat avec des influences Drum & Bass et UK Garage.</p>
+                <a href="https://www.mixcloud.com/BRUZZ/concealed-by-come-correct-090224/" target="_blank">Écoutez ici</a>
+            </li>
+            <li>
+                <h3>Frontal Soundsystem</h3>
+                <p>18:30 - 20:00</p>
+                <p>Des basses lourdes et un mélange de hip-hop, trap, et grime.</p>
+                <a href="https://youtu.be/EQclcW50xcM?si=Xu5MeUs8p_bRFCY4&t=686" target="_blank">Écoutez ici</a>
+            </li>
+            <li>
+                <h3>Emilija</h3>
+                <p>20:00 - 22:00</p>
+                <p>Étoile montante de la musique électronique.</p>
+                <a href="https://youtu.be/RUCUly7X2io?si=Qyp_Y4s8llDplSh9" target="_blank">Écoutez ici</a>
+            </li>
         </ul>
         <a class="back-link" href="index.html">Retour à l'accueil</a>
     </div>
+
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                document.documentElement.style.setProperty('--primary-color', '#2C3E50');
+                document.documentElement.style.setProperty('--text-color', '#ECF0F1');
+                document.documentElement.style.setProperty('--card-bg-color', '#34495E');
+                document.documentElement.style.setProperty('--card-text-color', '#ECF0F1');
+                document.documentElement.style.setProperty('--card-hover-color', '#2C3E50');
+            } else {
+                document.documentElement.style.setProperty('--primary-color', '#FF6F61');
+                document.documentElement.style.setProperty('--text-color', '#ffffff');
+                document.documentElement.style.setProperty('--card-bg-color', '#fefefe');
+                document.documentElement.style.setProperty('--card-text-color', '#FF6F61');
+                document.documentElement.style.setProperty('--card-hover-color', '#fce4e1');
+            }
+        });
+    </script>
 </body>
 </html>
