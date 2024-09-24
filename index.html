@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Écran de veille DVD</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        #dvd-logo {
+            position: absolute;
+            width: 150px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://shortiougc.com/mainpages-logo/13v.fr/6fnDrlULeuYLEcyAP6jim" id="dvd-logo" alt="DVD logo">
+
+    <script>
+        const dvdLogo = document.getElementById('dvd-logo');
+        let x = Math.random() * window.innerWidth;
+        let y = Math.random() * window.innerHeight;
+        let dx = 2;
+        let dy = 2;
+
+        function moveLogo() {
+            if (x + dvdLogo.offsetWidth >= window.innerWidth || x <= 0) {
+                dx = -dx;
+            }
+
+            if (y + dvdLogo.offsetHeight >= window.innerHeight || y <= 0) {
+                dy = -dy;
+            }
+
+            x += dx;
+            y += dy;
+
+            dvdLogo.style.left = x + 'px';
+            dvdLogo.style.top = y + 'px';
+
+            requestAnimationFrame(moveLogo);
+        }
+
+        moveLogo();
+    </script>
+</body>
+</html>
