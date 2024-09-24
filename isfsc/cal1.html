@@ -3,81 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter les Cours au Google Calendar</title>
+    <title>Add Courses to Google Calendar</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #005999;
+            --accent-color: #00a3e0;
+            --text-color: #ffffff;
+            --background-color: #f0f8ff;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .course-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .course-item {
+            background-color: #ffffff;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .course-item:hover {
+            transform: translateY(-5px);
+        }
+        .course-link {
+            display: block;
+            padding: 1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .course-link:hover {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+        .course-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .course-details {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Ajouter vos cours à Google Calendar</h1>
-
-    <ul>
-        <!-- Sociologie générale -->
-        <li>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sociologie%20g%C3%A9n%C3%A9rale&dates=20240923T080000/20240923T100000&details=Cours%20avec%20Dani%C3%A8le%20PETO&location=Local%2001&sf=true&output=xml" target="_blank">
-                Ajouter Sociologie générale (Local 01) - Lundi 23 septembre 8h00-10h00
-            </a>
-        </li>
-
-        <!-- Langage, écriture et techniques journalistiques -->
-        <li>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Langage%20%C3%A9criture%20et%20techniques%20journalistiques&dates=20240923T100000/20240923T120000&details=Cours%20avec%20Bernard%20BUCHEL&location=Point%20Poste&sf=true&output=xml" target="_blank">
-                Ajouter Langage, écriture et techniques journalistiques (Point Poste) - Lundi 23 septembre 10h00-12h00
-            </a>
-        </li>
-
-        <!-- Théories de la communication -->
-        <li>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Th%C3%A9ories%20de%20la%20communication&dates=20240924T120000/20240924T140000&details=Cours%20avec%20Emmanu%C3%ABl%20MURHULA%20AMISI%20NASHI&location=Auditoire%20156%20(Galil%C3%A9e-EPHEC)&sf=true&output=xml" target="_blank">
-                Ajouter Théories de la communication (Auditoire 156) - Mardi 24 septembre 12h00-14h00
-            </a>
-        </li>
-
-        <!-- Communication interpersonnelle et dynamique de groupe -->
-        <li>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Communication%20interpersonnelle%20et%20dynamique%20de%20groupe&dates=20240925T140000/20240925T160000&details=Cours%20avec%20Pascale%20GANY&location=Local%2051&sf=true&output=xml" target="_blank">
-                Ajouter Communication interpersonnelle et dynamique de groupe (Local 51) - Mercredi 25 septembre 14h00-16h00
-            </a>
-        </li>
-
-        <!-- Psychologie et communication -->
-        <li>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Psychologie%20et%20communication&dates=20240925T160000/20240925T180000&details=Cours%20avec%20Delphine%20BAULOYE&location=Auditoire%20156%20(Galil%C3%A9e-EPHEC)&sf=true&output=xml" target="_blank">
-                Ajouter Psychologie et communication (Auditoire 156) - Mercredi 25 septembre 16h00-18h00
-            </a>
-        </li>
-
-        <!-- Stratégies de la communication -->
-        <li>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Strat%C3%A9gies%20de%20la%20communication&dates=20240926T080000/20240926T100000&details=Cours%20avec%20Th%C3%A9odore%20TAYMANS&location=Auditoire%20156%20(Galil%C3%A9e-EPHEC)&sf=true&output=xml" target="_blank">
-                Ajouter Stratégies de la communication (Auditoire 156) - Jeudi 26 septembre 8h00-10h00
-            </a>
-        </li>
-
-        <!-- Histoire des arts contemporains et du design -->
-        <li>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Histoire%20des%20arts%20contemporains%20et%20du%20design&dates=20240926T100000/20240926T120000&details=Cours%20avec%20Sabine%20SIL&location=Auditoire%20156%20(Galil%C3%A9e-EPHEC)&sf=true&output=xml" target="_blank">
-                Ajouter Histoire des arts contemporains et du design (Auditoire 156) - Jeudi 26 septembre 10h00-12h00
-            </a>
-        </li>
-
-        <!-- Atelier d’écriture -->
-        <li>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Atelier%20d%E2%80%99%C3%A9criture&dates=20240926T120000/20240926T140000&details=Cours%20avec%20Marie%20GRIBOMONT&location=Local%2034&sf=true&output=xml" target="_blank">
-                Ajouter Atelier d’écriture (Local 34) - Jeudi 26 septembre 12h00-14h00
-            </a>
-        </li>
-
-        <!-- Recherche documentaire et veille médiatique -->
-        <li>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Recherche%20documentaire%20et%20veille%20m%C3%A9diatique&dates=20240927T080000/20240927T100000&details=Cours%20avec%20Mich%C3%A8le%20ORBAN&location=Local%2036&sf=true&output=xml" target="_blank">
-                Ajouter Recherche documentaire et veille médiatique (Local 36) - Vendredi 27 septembre 8h00-10h00
-            </a>
-        </li>
-
-        <!-- Communication interpersonnelle et dynamique de groupe (rappel) -->
-        <li>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Communication%20interpersonnelle%20et%20dynamique%20de%20groupe&dates=20240927T100000/20240927T120000&details=Cours%20avec%20Pascale%20GANY&location=Local%2045&sf=true&output=xml" target="_blank">
-                Ajouter Communication interpersonnelle et dynamique de groupe (Local 45) - Vendredi 27 septembre 10h00-12h00
-            </a>
-        </li>
-    </ul>
+    <header>
+        <h1>Add Your Courses to Google Calendar</h1>
+    </header>
+    <div class="container">
+        <ul class="course-list">
+            <li class="course-item">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sociologie%20g%C3%A9n%C3%A9rale&dates=20240923T080000/20240923T100000&details=Cours%20avec%20Dani%C3%A8le%20PETO&location=Local%2001&sf=true&output=xml" target="_blank" class="course-link">
+                    <div class="course-title">Sociologie générale</div>
+                    <div class="course-details">Monday, September 23 | 8:00 AM - 10:00 AM | Room 01</div>
+                </a>
+            </li>
+            <li class="course-item">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Langage%20%C3%A9criture%20et%20techniques%20journalistiques&dates=20240923T100000/20240923T120000&details=Cours%20avec%20Bernard%20BUCHEL&location=Point%20Poste&sf=true&output=xml" target="_blank" class="course-link">
+                    <div class="course-title">Langage, écriture et techniques journalistiques</div>
+                    <div class="course-details">Monday, September 23 | 10:00 AM - 12:00 PM | Point Poste</div>
+                </a>
+            </li>
+            <li class="course-item">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Th%C3%A9ories%20de%20la%20communication&dates=20240924T120000/20240924T140000&details=Cours%20avec%20Emmanu%C3%ABl%20MURHULA%20AMISI%20NASHI&location=Auditoire%20156%20(Galil%C3%A9e-EPHEC)&sf=true&output=xml" target="_blank" class="course-link">
+                    <div class="course-title">Théories de la communication</div>
+                    <div class="course-details">Tuesday, September 24 | 12:00 PM - 2:00 PM | Auditorium 156 (Galilée-EPHEC)</div>
+                </a>
+            </li>
+            <li class="course-item">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Communication%20interpersonnelle%20et%20dynamique%20de%20groupe&dates=20240925T140000/20240925T160000&details=Cours%20avec%20Pascale%20GANY&location=Local%2051&sf=true&output=xml" target="_blank" class="course-link">
+                    <div class="course-title">Communication interpersonnelle et dynamique de groupe</div>
+                    <div class="course-details">Wednesday, September 25 | 2:00 PM - 4:00 PM | Room 51</div>
+                </a>
+            </li>
+            <li class="course-item">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Psychologie%20et%20communication&dates=20240925T160000/20240925T180000&details=Cours%20avec%20Delphine%20BAULOYE&location=Auditoire%20156%20(Galil%C3%A9e-EPHEC)&sf=true&output=xml" target="_blank" class="course-link">
+                    <div class="course-title">Psychologie et communication</div>
+                    <div class="course-details">Wednesday, September 25 | 4:00 PM - 6:00 PM | Auditorium 156 (Galilée-EPHEC)</div>
+                </a>
+            </li>
+            <li class="course-item">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Strat%C3%A9gies%20de%20la%20communication&dates=20240926T080000/20240926T100000&details=Cours%20avec%20Th%C3%A9odore%20TAYMANS&location=Auditoire%20156%20(Galil%C3%A9e-EPHEC)&sf=true&output=xml" target="_blank" class="course-link">
+                    <div class="course-title">Stratégies de la communication</div>
+                    <div class="course-details">Thursday, September 26 | 8:00 AM - 10:00 AM | Auditorium 156 (Galilée-EPHEC)</div>
+                </a>
+            </li>
+            <li class="course-item">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Histoire%20des%20arts%20contemporains%20et%20du%20design&dates=20240926T100000/20240926T120000&details=Cours%20avec%20Sabine%20SIL&location=Auditoire%20156%20(Galil%C3%A9e-EPHEC)&sf=true&output=xml" target="_blank" class="course-link">
+                    <div class="course-title">Histoire des arts contemporains et du design</div>
+                    <div class="course-details">Thursday, September 26 | 10:00 AM - 12:00 PM | Auditorium 156 (Galilée-EPHEC)</div>
+                </a>
+            </li>
+            <li class="course-item">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Atelier%20d%E2%80%99%C3%A9criture&dates=20240926T120000/20240926T140000&details=Cours%20avec%20Marie%20GRIBOMONT&location=Local%2034&sf=true&output=xml" target="_blank" class="course-link">
+                    <div class="course-title">Atelier d'écriture</div>
+                    <div class="course-details">Thursday, September 26 | 12:00 PM - 2:00 PM | Room 34</div>
+                </a>
+            </li>
+            <li class="course-item">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Recherche%20documentaire%20et%20veille%20m%C3%A9diatique&dates=20240927T080000/20240927T100000&details=Cours%20avec%20Mich%C3%A8le%20ORBAN&location=Local%2036&sf=true&output=xml" target="_blank" class="course-link">
+                    <div class="course-title">Recherche documentaire et veille médiatique</div>
+                    <div class="course-details">Friday, September 27 | 8:00 AM - 10:00 AM | Room 36</div>
+                </a>
+            </li>
+            <li class="course-item">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Communication%20interpersonnelle%20et%20dynamique%20de%20groupe&dates=20240927T100000/20240927T120000&details=Cours%20avec%20Pascale%20GANY&location=Local%2045&sf=true&output=xml" target="_blank" class="course-link">
+                    <div class="course-title">Communication interpersonnelle et dynamique de groupe</div>
+                    <div class="course-details">Friday, September 27 | 10:00 AM - 12:00 PM | Room 45</div>
+                </a>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
