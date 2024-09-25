@@ -6,8 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirection</title>
     <link rel="icon" href="https://cdn.13v.be/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            background-color: #283c33;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #accessButton {
+            display: none;
+            background-color: white;
+            color: #283c33;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <p>Si vous n'êtes pas redirigé automatiquement, <a href="https://watch.valqimir.com/isfsc/bac1/horaires/horaire-1.pdf">cliquez ici</a>.</p>
+    <button id="accessButton" onclick="window.location.href='https://watch.valqimir.com/isfsc/bac1/horaires/horaire-1.pdf'">
+        Accès au fichier
+    </button>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('accessButton').style.display = 'block';
+        }, 10000);
+    </script>
 </body>
 </html>
