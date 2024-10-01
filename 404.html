@@ -18,30 +18,72 @@
             justify-content: center;
             height: 100vh;
         }
-
         h1 {
             font-size: 3em;
             margin-bottom: 10px;
         }
-
         p {
             font-size: 1.2em;
             margin-top: 0;
         }
-
         a {
             color: #6fb98f;
             text-decoration: none;
         }
-
         a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>Error 404 - Page Not Found</h1>
-    <p>Sorry, the page you are looking for seems to be missing.</p>
-    <p>Return to the <a href="/">home page</a>.</p>
+    <h1 id="title">Error 404 - Page Not Found</h1>
+    <p id="message">Sorry, the page you are looking for seems to be missing.</p>
+    <p id="home-link">Return to the <a href="/">home page</a>.</p>
+
+    <script>
+        const languages = {
+            'en': {
+                title: 'Error 404 - Page Not Found',
+                message: 'Sorry, the page you are looking for seems to be missing.',
+                homeLink: 'Return to the <a href="/">home page</a>.'
+            },
+            'fr': {
+                title: 'Erreur 404 - Page Non Trouvée',
+                message: 'Désolé, la page que vous recherchez semble être manquante.',
+                homeLink: 'Retourner à la <a href="/">page d\'accueil</a>.'
+            },
+            'es': {
+                title: 'Error 404 - Página No Encontrada',
+                message: 'Lo sentimos, la página que estás buscando parece no existir.',
+                homeLink: 'Volver a la <a href="/">página de inicio</a>.'
+            },
+            'nl': {
+                title: 'Fout 404 - Pagina Niet Gevonden',
+                message: 'Sorry, de pagina die u zoekt lijkt niet te bestaan.',
+                homeLink: 'Ga terug naar de <a href="/">startpagina</a>.'
+            },
+            'de': {
+                title: 'Fehler 404 - Seite Nicht Gefunden',
+                message: 'Entschuldigung, die gesuchte Seite scheint nicht zu existieren.',
+                homeLink: 'Zurück zur <a href="/">Startseite</a>.'
+            }
+        };
+
+        function setLanguage(lang) {
+            const content = languages[lang] || languages['en'];
+            document.getElementById('title').textContent = content.title;
+            document.getElementById('message').textContent = content.message;
+            document.getElementById('home-link').innerHTML = content.homeLink;
+            document.documentElement.lang = lang;
+        }
+
+        function detectLanguage() {
+            const userLang = navigator.language || navigator.userLanguage;
+            const shortLang = userLang.split('-')[0];
+            return languages[shortLang] ? shortLang : 'en';
+        }
+
+        setLanguage(detectLanguage());
+    </script>
 </body>
 </html>
