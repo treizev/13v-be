@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter l'horaire des cours au calendrier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        #addToCalendarBtn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        #addToCalendarBtn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ajouter l'horaire des cours au calendrier</h1>
+        <button id="addToCalendarBtn">Ajouter au calendrier</button>
+    </div>
+
+    <script>
+        const icalData = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hacksw/handcal//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+SUMMARY:Langage, écriture et techniques journalistiques
+DTSTART:20241003T100000
+DTEND:20241003T130000
+LOCATION:local 01
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Sociologie générale
+DTSTART:20241007T090000
+DTEND:20241007T110000
+LOCATION:local 01
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Exploration des cultures musicales
+DTSTART:20241007T110000
+DTEND:20241007T130000
+LOCATION:local 01
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Activité spéciale - VAN CAUBERG Nathalie
+DTSTART:20241007T130000
+DTEND:20241007T140000
+LOCATION:local 08
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Langage, écriture et techniques journalistiques
+DTSTART:20241007T140000
+DTEND:20241007T160000
+LOCATION:Point Poste
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Théories de la communication
+DTSTART:20241007T160000
+DTEND:20241007T180000
+LOCATION:Point Poste
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Communication interpersonnelle et dynamique de groupe
+DTSTART:20241008T110000
+DTEND:20241008T130000
+LOCATION:local 45
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Psychologie et communication
+DTSTART:20241008T140000
+DTEND:20241008T170000
+LOCATION:Auditoire 156
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Stratégies de la communication
+DTSTART:20241009T090000
+DTEND:20241009T110000
+LOCATION:Auditoire 156
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Histoire des arts contemporains & du design
+DTSTART:20241009T110000
+DTEND:20241009T130000
+LOCATION:Auditoire 156
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Atelier d'écriture
+DTSTART:20241009T140000
+DTEND:20241009T160000
+LOCATION:local 31
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Recherche documentaire et veille médiatique
+DTSTART:20241009T160000
+DTEND:20241009T180000
+LOCATION:Salle informatique 13
+END:VEVENT
+END:VCALENDAR`;
+
+        document.getElementById('addToCalendarBtn').addEventListener('click', function() {
+            const blob = new Blob([icalData], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'horaire_cours.ics';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
+</body>
+</html>
