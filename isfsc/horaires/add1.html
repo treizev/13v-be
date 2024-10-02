@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="icon" href="https://cdn.13v.be/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter l'horaire des cours au calendrier</title>
+    <title>Ajouter l'horaire au calendrier</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
+            background-color: #283c33;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
         h1 {
-            color: #333;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-top: 0;
         }
         .button {
-            background-color: #4CAF50;
+            background-color: #6fb98f;
             border: none;
             color: white;
             padding: 15px 32px;
@@ -33,36 +35,48 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
+            margin: 10px 2px;
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
         .button:hover {
-            background-color: #45a049;
+            background-color: #4e8c6f;
         }
         #calendarOptions {
             display: none;
             margin-top: 20px;
         }
-        #calendarOptions .button {
-            background-color: #008CBA;
+        #languageSelector {
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
-        #calendarOptions .button:hover {
-            background-color: #007B9E;
+        select {
+            background-color: #283c33;
+            color: #fff;
+            border: 1px solid #6fb98f;
+            padding: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Ajouter l'horaire des cours au calendrier</h1>
-        <button id="showOptionsBtn" class="button">Choisir un calendrier</button>
-        <div id="calendarOptions">
-            <button id="googleCalendarBtn" class="button">Google Calendar</button>
-            <button id="outlookBtn" class="button">Outlook</button>
-            <button id="yahooCalendarBtn" class="button">Yahoo Calendar</button>
-            <button id="icsFileBtn" class="button">Télécharger ICS</button>
-        </div>
+    <div id="languageSelector">
+        <select id="langSelect" onchange="setLanguage(this.value)">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+            <option value="nl">Nederlands</option>
+            <option value="de">Deutsch</option>
+        </select>
+    </div>
+    <h1 id="title">Ajouter l'horaire au calendrier</h1>
+    <p id="message">Choisissez votre service de calendrier préféré pour ajouter l'horaire des cours.</p>
+    <button id="showOptionsBtn" class="button">Choisir un calendrier</button>
+    <div id="calendarOptions">
+        <button id="googleCalendarBtn" class="button">Google Calendar</button>
+        <button id="outlookBtn" class="button">Outlook</button>
+        <button id="yahooCalendarBtn" class="button">Yahoo Calendar</button>
+        <button id="icsFileBtn" class="button">Télécharger ICS</button>
     </div>
 
     <script>
@@ -144,6 +158,48 @@ LOCATION:Salle informatique 13
 END:VEVENT
 END:VCALENDAR`;
 
+        const languages = {
+            'fr': {
+                title: 'Ajouter l'horaire au calendrier',
+                message: 'Choisissez votre service de calendrier préféré pour ajouter l'horaire des cours.',
+                chooseCalendar: 'Choisir un calendrier',
+                downloadICS: 'Télécharger ICS'
+            },
+            'en': {
+                title: 'Add Schedule to Calendar',
+                message: 'Choose your preferred calendar service to add the course schedule.',
+                chooseCalendar: 'Choose a calendar',
+                downloadICS: 'Download ICS'
+            },
+            'nl': {
+                title: 'Voeg Rooster toe aan Agenda',
+                message: 'Kies uw voorkeursagendaservice om het lesrooster toe te voegen.',
+                chooseCalendar: 'Kies een agenda',
+                downloadICS: 'Download ICS'
+            },
+            'de': {
+                title: 'Stundenplan zum Kalender hinzufügen',
+                message: 'Wählen Sie Ihren bevorzugten Kalenderdienst aus, um den Stundenplan hinzuzufügen.',
+                chooseCalendar: 'Wählen Sie einen Kalender',
+                downloadICS: 'ICS herunterladen'
+            }
+        };
+
+        function setLanguage(lang) {
+            const content = languages[lang];
+            document.getElementById('title').textContent = content.title;
+            document.getElementById('message').textContent = content.message;
+            document.getElementById('showOptionsBtn').textContent = content.chooseCalendar;
+            document.getElementById('icsFileBtn').textContent = content.downloadICS;
+            document.documentElement.lang = lang;
+        }
+
+        function detectLanguage() {
+            const userLang = navigator.language || navigator.userLanguage;
+            const shortLang = userLang.split('-')[0];
+            return languages[shortLang] ? shortLang : 'fr';
+        }
+
         document.getElementById('showOptionsBtn').addEventListener('click', function() {
             document.getElementById('calendarOptions').style.display = 'block';
             this.style.display = 'none';
@@ -157,14 +213,14 @@ END:VCALENDAR`;
         document.getElementById('outlookBtn').addEventListener('click', function() {
             const outlookUrl = 'https://outlook.live.com/owa/?path=/calendar/action/compose&rru=addevent';
             window.open(outlookUrl, '_blank');
-            alert("Veuillez importer manuellement le fichier ICS dans Outlook après le téléchargement.");
+            alert(languages[document.documentElement.lang].downloadICS);
             downloadICS();
         });
 
         document.getElementById('yahooCalendarBtn').addEventListener('click', function() {
             const yahooUrl = 'https://calendar.yahoo.com/?v=60';
             window.open(yahooUrl, '_blank');
-            alert("Veuillez importer manuellement le fichier ICS dans Yahoo Calendar après le téléchargement.");
+            alert(languages[document.documentElement.lang].downloadICS);
             downloadICS();
         });
 
@@ -179,6 +235,9 @@ END:VCALENDAR`;
             link.click();
             document.body.removeChild(link);
         }
+
+        // Set initial language
+        setLanguage(detectLanguage());
     </script>
 </body>
 </html>
