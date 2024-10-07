@@ -1,78 +1,118 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mynotes</title>
+    <link rel="icon" href="https://cdn.13v.be/favicon.ico" type="image/x-icon">
     <style>
         body {
             background-color: #283c33;
             color: white;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
+
         h1 {
             text-align: center;
+            margin: 20px 0;
         }
-        .course {
-            margin: 20px;
+
+        .container {
             padding: 10px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .course {
+            margin-bottom: 20px;
+            padding: 15px;
             background-color: #ffffff10;
             border-radius: 8px;
         }
+
+        .course h2 {
+            font-size: 1.5rem;
+            margin: 0 0 10px;
+        }
+
         a {
             color: #76c7c0;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
         .subcourse {
             margin-left: 20px;
         }
+
+        .subcourse h3 {
+            font-size: 1.2rem;
+            margin: 10px 0 5px;
+        }
+
+        @media (max-width: 600px) {
+            .course h2 {
+                font-size: 1.25rem;
+            }
+
+            .subcourse h3 {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <h1>bac1 - comm</h1>
 
-    <div class="course">
-        <h2>Théories de la communication</h2>
-        <a href="https://13v.fr/tc" target="_blank">Accéder au cours</a>
-    </div>
+    <div class="container">
+        <div class="course">
+            <h2>Théories de la communication</h2>
+            <a href="https://13v.fr/tc" target="_blank">Accéder au cours</a>
+        </div>
 
-    <div class="course">
-        <h2>Sociologie générale</h2>
-        <a href="https://13v.fr/sg" target="_blank">Accéder au cours</a>
-    </div>
+        <div class="course">
+            <h2>Sociologie générale</h2>
+            <a href="https://13v.fr/sg" target="_blank">Accéder au cours</a>
+        </div>
 
-    <div class="course">
-        <h2>Exploration de la création musicale & des univers sonores</h2>
-        <a href="https://13v.fr/ms" target="_blank">Accéder au cours</a>
-    </div>
+        <div class="course">
+            <h2>Exploration de la création musicale & des univers sonores</h2>
+            <a href="https://13v.fr/ms" target="_blank">Accéder au cours</a>
+        </div>
 
-    <div class="course">
-        <h2>Langage, écriture et techniques journalistiques</h2>
-        <a href="https://13v.fr/letj" target="_blank">Accéder au cours</a>
-        <div class="subcourse">
-            <h3>Techniques d’interview</h3>
-            <a href="https://13v.fr/ti" target="_blank">Accéder au sous-cours</a>
+        <div class="course">
+            <h2>Langage, écriture et techniques journalistiques</h2>
+            <a href="https://13v.fr/letj" target="_blank">Accéder au cours</a>
+            <div class="subcourse">
+                <h3>Techniques d’interview</h3>
+                <a href="https://13v.fr/ti" target="_blank">Accéder au sous-cours</a>
+            </div>
+        </div>
+
+        <div class="course">
+            <h2>Histoire des arts contemporains et du design</h2>
+            <a href="https://13v.fr/ad" target="_blank">Accéder au cours</a>
+        </div>
+
+        <div class="course">
+            <h2>Psychologie et communication</h2>
+            <a href="https://13v.fr/psy" target="_blank">Accéder au cours</a>
+        </div>
+
+        <div class="course">
+            <h2>Stratégies de la communication</h2>
+            <a href="https://13v.fr/sc" target="_blank">Accéder au cours</a>
         </div>
     </div>
 
-    <div class="course">
-        <h2>Histoire des arts contemporains et du design</h2>
-        <a href="https://13v.fr/ad" target="_blank">Accéder au cours</a>
-    </div>
-
-    <div class="course">
-        <h2>Psychologie et communication</h2>
-        <a href="https://13v.fr/psy" target="_blank">Accéder au cours</a>
-    </div>
-
-    <div class="course">
-        <h2>Stratégies de la communication</h2>
-        <a href="https://13v.fr/sc" target="_blank">Accéder au cours</a>
-    </div>
-
 </body>
+
 </html>
