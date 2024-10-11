@@ -1,0 +1,55 @@
+<html lang="fr" style="transition-property: margin-right; transition-duration: 450ms; transition-timing-function: cubic-bezier(0.25, 0.75, 0.5, 1); margin-right: 0px;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trzv</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn.13v.be/favicon.ico" type="image/x-icon">
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #283c33; /* Couleur de fond */
+        }
+
+        #dvd-logo {
+            position: absolute;
+            width: 150px;
+            height: auto;
+        }
+    </style>
+<meta id="ConnectiveDocSignExtentionInstalled" name="ConnectiveDocSignExtentionInstalled" data-extension-version="1.0.6"><style id="ReanimatedPredefinedWebAnimationsStyle"></style><style id="ReanimatedCustomWebAnimationsStyle"></style></head>
+<body>
+    <img src="https://cdn.13v.be/logo.png" id="dvd-logo" alt="trzv logo" style="left: 1421.56px; top: 189.39px;">
+
+    <script>
+        const dvdLogo = document.getElementById('dvd-logo');
+        let x = Math.random() * window.innerWidth;
+        let y = Math.random() * window.innerHeight;
+        let dx = 2;
+        let dy = 2;
+
+        function moveLogo() {
+            if (x + dvdLogo.offsetWidth >= window.innerWidth || x <= 0) {
+                dx = -dx;
+            }
+
+            if (y + dvdLogo.offsetHeight >= window.innerHeight || y <= 0) {
+                dy = -dy;
+            }
+
+            x += dx;
+            y += dy;
+
+            dvdLogo.style.left = x + 'px';
+            dvdLogo.style.top = y + 'px';
+
+            requestAnimationFrame(moveLogo);
+        }
+
+        moveLogo();
+    </script>
+
+
+</body><div data-klarna-plugin-views-container=""></div></html>
