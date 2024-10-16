@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe to Our Newsletter</title>
+
+  <!-- Step 2: Add the Pageclip stylesheet -->
+  <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+
+  <!-- Custom CSS for a professional look -->
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 1em;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    input:focus {
+      border-color: #0073e6;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 115, 230, 0.3);
+    }
+
+    button {
+      padding: 15px;
+      font-size: 1.2em;
+      background-color: #0073e6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #005bb5;
+    }
+
+    .disclaimer {
+      font-size: 0.9em;
+      color: #777;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Subscribe to Our Newsletter</h1>
+    <p>Stay updated with the latest news and exclusive offers.</p>
+    
+    <!-- Step 3: Use this form to capture submissions -->
+    <form action="https://send.pageclip.co/mDGhf7PdRM8ZBgLePT7iQEtiucnYOnEQ" class="pageclip-form" method="post">
+      <input type="text" name="name" placeholder="Your Full Name" required />
+      <input type="email" name="email" placeholder="Your Email Address" required />
+
+      <button type="submit" class="pageclip-form__submit">
+        <span>Subscribe Now</span>
+      </button>
+    </form>
+
+    <p class="disclaimer">We respect your privacy. Unsubscribe at any time.</p>
+  </div>
+
+  <!-- Step 1: Add the Pageclip script before the closing body tag -->
+  <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+</body>
+</html>
