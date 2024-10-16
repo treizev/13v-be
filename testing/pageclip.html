@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funky Pageclip Form</title>
+
+  <!-- Step 2: Add the Pageclip stylesheet -->
+  <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+
+  <!-- Custom CSS for some funky styling -->
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #FF69B4, #BA55D3);
+      color: white;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    h1 {
+      font-size: 3em;
+      animation: rainbow-text 3s ease-in-out infinite;
+    }
+
+    @keyframes rainbow-text {
+      0% { color: red; }
+      25% { color: orange; }
+      50% { color: yellow; }
+      75% { color: green; }
+      100% { color: blue; }
+    }
+
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    input, button {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      font-size: 1.2em;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Join the Funk!</h1>
+  
+  <div class="form-container">
+    <!-- Step 3: Use this form to capture submissions -->
+    <form action="https://send.pageclip.co/mDGhf7PdRM8ZBgLePT7iQEtiucnYOnEQ" class="pageclip-form" method="post">
+      <input type="text" name="name" placeholder="Enter your funky name" />
+      <input type="email" name="email" placeholder="Enter your email" />
+
+      <button type="submit" class="pageclip-form__submit">
+        <span>Send</span>
+      </button>
+    </form>
+  </div>
+
+  <!-- Step 1: Add the Pageclip script before the closing body tag -->
+  <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+</body>
+</html>
