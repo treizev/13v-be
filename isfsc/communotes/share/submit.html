@@ -15,22 +15,97 @@
             background-color: #283c33;
             color: white;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        nav ul li a, footer a {
+        nav {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
             color: white;
+            text-decoration: none;
+            font-size: 1rem;
         }
 
-        label, input, button, hgroup {
-            color: white;
+        main {
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
         }
 
-        button.pageclip-form__submit {
+        form {
+            max-width: 500px;
+            width: 100%;
+            background-color: #3b4f46;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            border: none;
+            font-size: 1rem;
+            background-color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
             background-color: #000000;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
         }
 
-        input, textarea {
-            color: black;
+        button span {
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+            }
+
+            form {
+                padding: 1.5rem;
+            }
+
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+
+            button {
+                padding: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -38,20 +113,18 @@
 <body>
     <nav class="container-fluid">
         <ul>
-            <li><strong>communotes</strong></li>
-        </ul>
-        <ul>
+            <li>communotes</li>
             <li><a href="#">notes</a></li>
         </ul>
     </nav>
 
     <main class="container">
         <form action="https://send.pageclip.co/mDGhf7PdRM8ZBgLePT7iQEtiucnYOnEQ" class="pageclip-form" method="post">
-            <label for="123456">matricule</label>
+            <label for="matricule">matricule</label>
             <input type="text" id="matricule" name="matricule" placeholder="ex: 123456" required />
 
             <label for="onedrive-link">lien onedrive</label>
-            <input type="url" id="onedrive-link" name="onedrive-link" placeholder="lien" required />
+            <input type="url" id="onedrive-link" name="onedrive-link" placeholder="https://onedrive.com/..." required />
 
             <button type="submit" class="pageclip-form__submit">
                 <span>envoyer</span>
