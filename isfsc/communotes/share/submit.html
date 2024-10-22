@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>communotes</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+
+    <style>
+        body {
+            background-color: #283c33;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        nav ul li a, footer a {
+            color: white;
+        }
+
+        label, input, button, hgroup {
+            color: white;
+        }
+
+        button.pageclip-form__submit {
+            background-color: #000000;
+        }
+
+        input, textarea {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>communotes</strong></li>
+        </ul>
+        <ul>
+            <li><a href="#">notes</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <form action="https://send.pageclip.co/mDGhf7PdRM8ZBgLePT7iQEtiucnYOnEQ" class="pageclip-form" method="post">
+            <label for="123456">matricule</label>
+            <input type="text" id="matricule" name="matricule" placeholder="ex: 123456" required />
+
+            <label for="onedrive-link">lien onedrive</label>
+            <input type="url" id="onedrive-link" name="onedrive-link" placeholder="lien" required />
+
+            <button type="submit" class="pageclip-form__submit">
+                <span>envoyer</span>
+            </button>
+        </form>
+    </main>
+
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+</body>
+
+</html>
