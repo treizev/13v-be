@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>communotes</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+
+    <style>
+        body {
+            background-color: #283c33;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        main {
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+
+        p {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            width: 100%;
+            background-color: #3b4f46;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            border: none;
+            font-size: 1rem;
+            background-color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #000000;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        button span {
+            display: inline-block;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-top: 1.5rem;
+            border-radius: 4px;
+            border: none;
+            font-size: 1rem;
+            background-color: white;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+            }
+
+            form {
+                padding: 1.5rem;
+            }
+
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+
+            button {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li>communotes</li>
+            <li><a href="#">notes</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <p>ajoutez d'abord votre matricule puis le lien vers votre fichier</p>
+        <form action="https://send.pageclip.co/mDGhf7PdRM8ZBgLePT7iQEtiucnYOnEQ" class="pageclip-form" method="post">
+            <label for="matricule">matricule</label>
+            <input type="text" id="matricule" name="matricule" placeholder="ex: 123456" pattern="\d*" required />
+
+            <label for="onedrive-link">lien onedrive</label>
+            <input type="url" id="onedrive-link" name="onedrive-link" placeholder="https://onedrive.com/..." required />
+
+            <button type="submit" class="pageclip-form__submit">
+                <span>envoyer</span>
+            </button>
+        </form>
+
+        <form action="https://send.pageclip.co/your-comment-endpoint" class="pageclip-form" method="post">
+            <label for="commentaire">Commentaire (si mécontent)</label>
+            <textarea id="commentaire" name="commentaire" placeholder="Laissez vos commentaires ici..." rows="5"></textarea>
+
+            <button type="submit" class="pageclip-form__submit">
+                <span>envoyer</span>
+            </button>
+        </form>
+    </main>
+
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+</body>
+
+</html>
