@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recette de Cookies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #283c33;
+            color: white;
+        }
+
+        header {
+            background-color: #283c33;
+            color: #283c33;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #1f2e29;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: white;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .ingredients, .steps {
+            margin: 1.5rem 0;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        .adjust-people {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            background-color: #283c33;
+            color: white;
+        }
+
+        button {
+            background-color: white;
+            color: #283c33;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+
+        @media (max-width: 600px) {
+            .adjust-people {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            input[type="number"] {
+                width: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Recette de Cookies</h1>
+    </header>
+
+    <div class="container">
+        <h2>Ingrédients</h2>
+        <div class="adjust-people">
+            <label for="people">Pour <span id="people-count">4</span> personne(s) :</label>
+            <input type="number" id="people" value="4" min="1">
+            <button onclick="updateIngredients()">Mettre à jour</button>
+        </div>
+        <ul class="ingredients" id="ingredients-list">
+            <li>150g de farine</li>
+            <li>100g de chocolat noir</li>
+            <li>85g de beurre</li>
+            <li>85g de sucre</li>
+            <li>1 œuf</li>
+            <li>1 cuillère à café de sel</li>
+            <li>1 cuillère à café de levure chimique</li>
+            <li>1 sachet de sucre vanillé</li>
+        </ul>
+
+        <h2>Cuisson</h2>
+        <ul class="steps">
+            <li>Préchauffez le four à 180°C (thermostat 6).</li>
+            <li>Enfournez pendant 10 minutes.</li>
+        </ul>
+
+        <h2>Préparation</h2>
+        <ol class="steps">
+            <li>Préparer le chocolat : découpez-le en pépites si nécessaire.</li>
+            <li>Préparer la pâte :
+                <ul>
+                    <li>Dans un saladier, mélangez le beurre, le sucre, l’œuf et la vanille.</li>
+                    <li>Incorporez progressivement la farine mélangée à la levure, le sel, puis les pépites de chocolat.</li>
+                </ul>
+            </li>
+            <li>Préparer la plaque : beurrez une plaque de cuisson avec du papier essuie-tout.</li>
+            <li>Former les cookies : déposez des petits tas de pâte espacés à l’aide de deux cuillères à soupe.</li>
+        </ol>
+    </div>
+
+    <script>
+        const baseQuantities = {
+            farine: 150,
+            chocolat: 100,
+            beurre: 85,
+            sucre: 85,
+            oeufs: 1,
+            sel: 1,
+            levure: 1,
+            vanille: 1
+        };
+
+        function updateIngredients() {
+            const people = document.getElementById("people").value;
+            const peopleCount = document.getElementById("people-count");
+            const ingredientsList = document.getElementById("ingredients-list");
+
+            peopleCount.textContent = people;
+
+            const newQuantities = {
+                farine: (baseQuantities.farine * people / 4).toFixed(1),
+                chocolat: (baseQuantities.chocolat * people / 4).toFixed(1),
+                beurre: (baseQuantities.beurre * people / 4).toFixed(1),
+                sucre: (baseQuantities.sucre * people / 4).toFixed(1),
+                oeufs: Math.ceil(baseQuantities.oeufs * people / 4),
+                sel: (baseQuantities.sel * people / 4).toFixed(1),
+                levure: (baseQuantities.levure * people / 4).toFixed(1),
+                vanille: (baseQuantities.vanille * people / 4).toFixed(1)
+            };
+
+            ingredientsList.innerHTML = `
+                <li>${newQuantities.farine}g de farine</li>
+                <li>${newQuantities.chocolat}g de chocolat noir</li>
+                <li>${newQuantities.beurre}g de beurre</li>
+                <li>${newQuantities.sucre}g de sucre</li>
+                <li>${newQuantities.oeufs} œuf(s)</li>
+                <li>${newQuantities.sel} cuillère(s) à café de sel</li>
+                <li>${newQuantities.levure} cuillère(s) à café de levure chimique</li>
+                <li>${newQuantities.vanille} sachet(s) de sucre vanillé</li>
+            `;
+        }
+    </script>
+</body>
+
+</html>
